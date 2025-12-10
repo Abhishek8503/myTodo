@@ -43,4 +43,4 @@ create table if not exists public.tasks (
 
 And then replace the anon key and supabase url from the .env file. 
 
-Read the js files. 
+Read the js files. # GitHub Pages deployment fix
