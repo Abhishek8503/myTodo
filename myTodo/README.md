@@ -45,3 +45,4 @@ And then replace the anon key and supabase url from the .env file.
 
 Read the js files. # GitHub Pages deployment fix
 # Deployment test
+# Deploy after secrets fix
