@@ -89,6 +89,12 @@ function App() {
     setTodo(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if(e.key === "Enter"){
+      handleAdd();
+    }
+  }
+
   const handleCheckbox = (id) => {
     const index = todos.findIndex(t => t.id === id)
     if (index === -1) return
@@ -113,15 +119,13 @@ function App() {
   return (
     <>
       <Navbar />
-{console.log("The todo-list being rendered.")}
-
       <div className="md:container mx-3 md:mx-auto my-5 rounded-xl p-5 bg-gray-800 min-h-[80vh] md:w-[40%]">
         <h1 className='text-green-500 text-center text-2xl max-sm:text-sm font-bold'>mySchemes - Your schemes and agenda are stored</h1>
         
         <div className="addTodo my-5">
           <h2 className="text-2xl font-bold text-green-500 my-4 max-sm:text-sm">{editingId ? 'Edit your task' : 'Add your list'}</h2>
           <div className="flex text-black max-sm:justify-between">
-            <input onChange={handleChange} value={todo} type="text" className='w-full rounded-full p-1 focus:outline-none focus:border-cyan-400 bg-white' />
+            <input onChange={handleChange} onKeyDown={handleKeyDown} value={todo} type="text" className='w-full rounded-full p-1 focus:outline-none focus:border-cyan-400 bg-white' />
             <button onClick={handleAdd} disabled={todo.length < 3} className='bg-cyan-500 disabled:bg-red-500 text-black rounded-full mx-2 font-bold p-2 py-1 hover:bg-cyan-400 w-fit'>{editingId ? 'Update' : 'Save'}</button>
           </div>
         </div>
